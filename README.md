@@ -1,6 +1,6 @@
 # Perplexity Search MCP
 
-A Model Context Protocol (MCP) server for Perplexity's web search with sonar or sonar-pro.
+A simple Model Context Protocol (MCP) server for Perplexity's web search with sonar or sonar-pro.
 
 ## Features
 
