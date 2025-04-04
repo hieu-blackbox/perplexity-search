@@ -30,7 +30,7 @@ if (!['sonar', 'sonar-pro'].includes(model)) {
 
 console.error(`Using Perplexity model: ${model}`);
 
-server = new Server({
+const server = new Server({
   name: "perplexity-search-server",
   version: "0.1.0"
 }, {
