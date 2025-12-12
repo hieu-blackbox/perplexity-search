@@ -8,10 +8,7 @@ for arg in "$@"; do
   export "$arg"
 done
 
-echo "Installing dependencies..."
-npm install
+echo "Installing Python dependencies..."
+python3.11 -m pip install -r requirements.txt
 
-echo "Building project..."
-npm run build
-
-echo "Build completed successfully!"
+echo "Installation completed successfully!"

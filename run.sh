@@ -9,4 +9,4 @@ for arg in "$@"; do
 done
 
 echo "Starting application with provided environment variables..."
-npm run start
+python3.11 src/index.py
