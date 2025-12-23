@@ -1,0 +1,35 @@
+# Smithery configuration file for Python version: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - perplexityApiKey
+    properties:
+      perplexityApiKey:
+        type: string
+        description: Your Perplexity API key
+      model:
+        type: string
+        description: Model to use (sonar or sonar-pro)
+        enum: [sonar, sonar-pro]
+        default: sonar-pro
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => {
+      const args = ['src/server.py'];
+      if (config.model) {
+        args.push('--model', config.model);
+      }
+      return {
+        command: 'python3.11',
+        args: args,
+        env: { PERPLEXITY_API_KEY: config.perplexityApiKey }
+      };
+    }
+  exampleConfig:
+    perplexityApiKey: dummy_key_here
+    model: sonar-pro

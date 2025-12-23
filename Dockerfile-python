@@ -1,0 +1,22 @@
+# Python version of the Perplexity Search MCP server
+FROM python:3.11-slim
+
+# Create app directory
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Bundle app source
+COPY src/ ./src/
+COPY .env.example ./
+
+# Expose port
+EXPOSE 3001
+
+# Set environment variable for port
+ENV PORT=3001
+
+# Run the server
+CMD ["python", "src/server.py"]
